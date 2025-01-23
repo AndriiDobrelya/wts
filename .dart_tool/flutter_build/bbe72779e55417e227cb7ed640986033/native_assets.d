@@ -1,0 +1,1 @@
+ /Users/andrew/VisualCodeProjects/wts/.dart_tool/flutter_build/bbe72779e55417e227cb7ed640986033/native_assets.yaml: 
