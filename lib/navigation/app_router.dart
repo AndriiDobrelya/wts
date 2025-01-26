@@ -20,12 +20,10 @@ class AppRouter extends _$AppRouter {
             AutoRoute(
               page: BreedsRoute.page,
               path: BreedsScreen.path,
-              children: [
-                AutoRoute(
-                  path: BreedDetailsScreen.path,
-                  page: BreedDetailsRoute.page,
-                ),
-              ]
+            ),
+            AutoRoute(
+              path: BreedDetailsScreen.path,
+              page: BreedDetailsRoute.page,
             ),
             AutoRoute(
               path: ProfileScreen.path,

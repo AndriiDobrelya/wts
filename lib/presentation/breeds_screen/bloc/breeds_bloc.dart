@@ -14,17 +14,18 @@ class BreedsBloc extends Bloc<BreedsEvent, BreedsState> {
   BreedsBloc(this._useCase) : super(const BreedsState.initial()) {
     List<BreedInfo> breeds = [];
     on<BreedsEvent>((event, emit) async {
-      emit(const BreedsState.loading());
-      final results = await _useCase.execute(NoParams());
-      results.when(
-        success: (data) {
-          breeds = data.breedList;
-          emit(BreedsState.loaded(fetchedDogs: data.breedList));
-        },
-        error: (error) => emit(BreedsState.error(exception: error)),
-      );
+      if (state == const BreedsState.initial()) {
+        emit(const BreedsState.loading());
+        final results = await _useCase.execute(NoParams());
+        results.when(
+          success: (data) {
+            breeds = data.breedList;
+            emit(BreedsState.loaded(fetchedDogs: breeds));
+          },
+          error: (error) => emit(BreedsState.error(exception: error)),
+        );
+      }
     });
-    on<ShowInfoEvent>((event, emit) => emit(BreedsState.showInfo(breedInfo: event.breedInfo, fetchedDogs: breeds)));
   }
 
   final BreedsUseCase _useCase;

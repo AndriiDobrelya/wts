@@ -17,15 +17,6 @@ class _BreedDetailsLayoutState extends State<BreedDetailsLayout> {
     super.initState();
   }
 
-  void showSnackBar(context, BreedInfo info) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(info.nameFormatter),
-        duration: const Duration(milliseconds: 500),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +24,7 @@ class _BreedDetailsLayoutState extends State<BreedDetailsLayout> {
         title: Text(S.of(context).breed_list),
       ),
       body: Center(
-        child: BlocConsumer<BreedDetailsCubit, BreedDetailsState>(
-          listener: (BuildContext context, state) {
-
-          },
+        child: BlocBuilder<BreedDetailsCubit, BreedDetailsState>(
           builder: (context, state) {
             return state.maybeWhen(
               initial: () => const Center(

@@ -14,6 +14,7 @@ class HomeLayout extends StatelessWidget {
       routes: const [
         BreedsRoute(),
         ProfileRoute(),
+      BreedDetailsRoute(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return SalomonBottomBar(
