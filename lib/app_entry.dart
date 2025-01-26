@@ -6,7 +6,7 @@ import 'package:wst/domain/repository/solution_repository_interface.dart';
 import 'package:wst/generated/l10n.dart';
 import 'package:wst/navigation/app_router.dart';
 import 'package:wst/solution_injection.dart';
-import 'package:wst/test2.dart';
+import 'package:wst/widgets/organisms/localization_provider.dart';
 
 class AppEntry extends StatelessWidget {
   AppEntry({super.key}) : _router = AppRouter();
