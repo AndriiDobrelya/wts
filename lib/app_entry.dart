@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
+import 'package:wst/domain/repository/solution_repository_interface.dart';
 import 'package:wst/generated/l10n.dart';
 import 'package:wst/navigation/app_router.dart';
 import 'package:wst/solution_injection.dart';
-import 'package:wst/domain/repository/solution_repository_interface.dart';
 import 'package:wst/test2.dart';
 
 class AppEntry extends StatelessWidget {
@@ -13,7 +13,11 @@ class AppEntry extends StatelessWidget {
 
   final AppRouter _router;
 
-  Future<Locale> getLocale(BuildContext buildContext) async => const Locale('en');
+  Future<Locale?> getLocale(BuildContext buildContext) async {
+    final storage = Provider.of<ISolutionRepository>(buildContext);
+    final savedLanguageCode = await storage.getLocale();
+    return savedLanguageCode != null ? Locale(savedLanguageCode) : null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +40,7 @@ class AppEntry extends StatelessWidget {
                   GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: S.delegate.supportedLocales,
-                locale: const Locale("en_US"),
+                locale: locale,
               );
             },
           );
