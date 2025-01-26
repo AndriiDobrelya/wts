@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BreedDetailsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BreedDetailsScreen(),
+      );
+    },
     BreedsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -34,6 +40,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [BreedDetailsScreen]
+class BreedDetailsRoute extends PageRouteInfo<void> {
+  const BreedDetailsRoute({List<PageRouteInfo>? children})
+      : super(
+          BreedDetailsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BreedDetailsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
