@@ -19,21 +19,21 @@ mixin _$BreedDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(String imageUrl) loaded,
     required TResult Function(Object? exception) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(String imageUrl)? loaded,
     TResult? Function(Object? exception)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(String imageUrl)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) =>
@@ -129,7 +129,7 @@ class _$InitialBreedDetailsStateImpl implements InitialBreedDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(String imageUrl) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return initial();
@@ -139,7 +139,7 @@ class _$InitialBreedDetailsStateImpl implements InitialBreedDetailsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(String imageUrl)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return initial?.call();
@@ -149,7 +149,7 @@ class _$InitialBreedDetailsStateImpl implements InitialBreedDetailsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(String imageUrl)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
@@ -204,6 +204,8 @@ abstract class _$$LoadedBreedDetailsStateImplCopyWith<$Res> {
           _$LoadedBreedDetailsStateImpl value,
           $Res Function(_$LoadedBreedDetailsStateImpl) then) =
       __$$LoadedBreedDetailsStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imageUrl});
 }
 
 /// @nodoc
@@ -217,58 +219,84 @@ class __$$LoadedBreedDetailsStateImplCopyWithImpl<$Res>
 
   /// Create a copy of BreedDetailsState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageUrl = null,
+  }) {
+    return _then(_$LoadedBreedDetailsStateImpl(
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LoadedBreedDetailsStateImpl implements LoadedBreedDetailsState {
-  const _$LoadedBreedDetailsStateImpl();
+  const _$LoadedBreedDetailsStateImpl({required this.imageUrl});
+
+  @override
+  final String imageUrl;
 
   @override
   String toString() {
-    return 'BreedDetailsState.loaded()';
+    return 'BreedDetailsState.loaded(imageUrl: $imageUrl)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LoadedBreedDetailsStateImpl);
+            other is _$LoadedBreedDetailsStateImpl &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, imageUrl);
+
+  /// Create a copy of BreedDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadedBreedDetailsStateImplCopyWith<_$LoadedBreedDetailsStateImpl>
+      get copyWith => __$$LoadedBreedDetailsStateImplCopyWithImpl<
+          _$LoadedBreedDetailsStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(String imageUrl) loaded,
     required TResult Function(Object? exception) error,
   }) {
-    return loaded();
+    return loaded(imageUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(String imageUrl)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
-    return loaded?.call();
+    return loaded?.call(imageUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(String imageUrl)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(imageUrl);
     }
     return orElse();
   }
@@ -309,7 +337,16 @@ class _$LoadedBreedDetailsStateImpl implements LoadedBreedDetailsState {
 }
 
 abstract class LoadedBreedDetailsState implements BreedDetailsState {
-  const factory LoadedBreedDetailsState() = _$LoadedBreedDetailsStateImpl;
+  const factory LoadedBreedDetailsState({required final String imageUrl}) =
+      _$LoadedBreedDetailsStateImpl;
+
+  String get imageUrl;
+
+  /// Create a copy of BreedDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadedBreedDetailsStateImplCopyWith<_$LoadedBreedDetailsStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -382,7 +419,7 @@ class _$ErrorBreedDetailsStateImpl implements ErrorBreedDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function() loaded,
+    required TResult Function(String imageUrl) loaded,
     required TResult Function(Object? exception) error,
   }) {
     return error(exception);
@@ -392,7 +429,7 @@ class _$ErrorBreedDetailsStateImpl implements ErrorBreedDetailsState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function()? loaded,
+    TResult? Function(String imageUrl)? loaded,
     TResult? Function(Object? exception)? error,
   }) {
     return error?.call(exception);
@@ -402,7 +439,7 @@ class _$ErrorBreedDetailsStateImpl implements ErrorBreedDetailsState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function()? loaded,
+    TResult Function(String imageUrl)? loaded,
     TResult Function(Object? exception)? error,
     required TResult orElse(),
   }) {
