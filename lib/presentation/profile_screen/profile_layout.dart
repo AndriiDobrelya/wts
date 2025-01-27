@@ -6,7 +6,7 @@ import 'package:wst/navigation/app_router.dart';
 import 'package:wst/presentation/profile_screen/bloc/setting_cubit.dart';
 import 'package:value_provider/value_provider.dart';
 
-import '../../test2.dart';
+import '../../widgets/organisms/localization_provider.dart';
 
 class ProfileLayout extends StatefulWidget {
   const ProfileLayout({super.key});
